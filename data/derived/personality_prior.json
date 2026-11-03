@@ -1,0 +1,85 @@
+{
+  "source": "Darwin's Ark (Morrill et al. 2022, Science), Zenodo 6522639, CC0",
+  "breed": "golden retriever",
+  "scale": "percentile among all Darwin's Ark dogs (0..1)",
+  "method": "puppy mean = adult golden mean + (young dogs - adult dogs); sd from adult goldens; corr from all dogs",
+  "n": {
+    "adult_goldens": {
+      "trainability": 136,
+      "attachment": 123,
+      "energy": 117,
+      "boldness": 119,
+      "excitability": 143,
+      "impulsivity": 143
+    },
+    "young_dogs": 2835,
+    "adult_dogs": 12179,
+    "corr_dogs": 11314
+  },
+  "mean": {
+    "trainability": 0.597,
+    "attachment": 0.573,
+    "energy": 0.456,
+    "boldness": 0.696,
+    "excitability": 0.538,
+    "impulsivity": 0.468
+  },
+  "sd": {
+    "trainability": 0.248,
+    "attachment": 0.229,
+    "energy": 0.286,
+    "boldness": 0.216,
+    "excitability": 0.279,
+    "impulsivity": 0.263
+  },
+  "corr": {
+    "trainability": {
+      "trainability": 1.0,
+      "attachment": 0.009,
+      "energy": 0.053,
+      "boldness": -0.011,
+      "excitability": -0.138,
+      "impulsivity": -0.381
+    },
+    "attachment": {
+      "trainability": 0.009,
+      "attachment": 1.0,
+      "energy": 0.041,
+      "boldness": 0.055,
+      "excitability": 0.07,
+      "impulsivity": 0.017
+    },
+    "energy": {
+      "trainability": 0.053,
+      "attachment": 0.041,
+      "energy": 1.0,
+      "boldness": -0.01,
+      "excitability": 0.05,
+      "impulsivity": -0.059
+    },
+    "boldness": {
+      "trainability": -0.011,
+      "attachment": 0.055,
+      "energy": -0.01,
+      "boldness": 1.0,
+      "excitability": 0.029,
+      "impulsivity": -0.021
+    },
+    "excitability": {
+      "trainability": -0.138,
+      "attachment": 0.07,
+      "energy": 0.05,
+      "boldness": 0.029,
+      "excitability": 1.0,
+      "impulsivity": 0.609
+    },
+    "impulsivity": {
+      "trainability": -0.381,
+      "attachment": 0.017,
+      "energy": -0.059,
+      "boldness": -0.021,
+      "excitability": 0.609,
+      "impulsivity": 1.0
+    }
+  }
+}
