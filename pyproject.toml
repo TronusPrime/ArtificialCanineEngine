@@ -1,0 +1,19 @@
+[project]
+name = "ace"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = ["numpy>=2.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ipykernel", "pandas>=2.2", "matplotlib", "openpyxl", "scipy"]
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
