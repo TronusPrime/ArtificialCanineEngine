@@ -21,11 +21,6 @@ class Prior:
 
 def load_prior(path: Path) -> Prior:
     """Read personality_prior.json into arrays in TRAIT_ORDER."""
-    # 1. json.loads(path.read_text())
-    # 2. mean: one value per trait name, in TRAIT_ORDER
-    # 3. sd:   same
-    # 4. corr: 6x6, row = trait a, column = trait b, both looped in TRAIT_ORDER
-    #    (the JSON stores it as data["corr"][a][b])
     data = json.loads(path.read_text())
     mean = []
     sd = []
@@ -41,12 +36,9 @@ def load_prior(path: Path) -> Prior:
     return Prior(mean = np.array(mean), sd = np.array(sd), corr = np.array(corr))
 
 
+# Clip, don't redraw: ~6-12% of values per trait land on a limit.
 def sample_puppy(rng: np.random.Generator, prior: Prior) -> Traits:
     """Draw one puppy's starting traits. Same rng state -> same puppy."""
-    # 1. cov = how much each trait varies, combined with how traits move together
-    # 2. draw 6 correlated values around prior.mean
-    # 3. clip to [TRAIT_MIN, TRAIT_MAX]  (or redraw, per your 4d decision)
-    # 4. Traits(*values): works because Traits fields are in TRAIT_ORDER
     n = len(prior.sd)                     # 6
     cov = np.zeros((n, n))                # empty 6x6 table
     for i in range(n):
