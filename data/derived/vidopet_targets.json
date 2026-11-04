@@ -1,0 +1,206 @@
+{
+  "source": {
+    "dataset": "VIDOPET (Vienna Dog Personality Test)",
+    "authors": "Turcsán, Wallis, Virányi, Range, Müller, Huber, Riemer (2018)",
+    "paper": "PLOS ONE, doi:10.1371/journal.pone.0195448",
+    "doi": "10.6084/m9.figshare.5477932.v2",
+    "license": "CC BY 4.0",
+    "dogs": "217 pet border collies",
+    "notebook": "notebooks/02_scorer_from_vidopet.ipynb"
+  },
+  "method": "Spearman r with 2000-resample bootstrap 95% CI, signed so positive = expected direction",
+  "probes": {
+    "novel_object": {
+      "vidopet_column": "novel_object__toy_1m",
+      "ace_trait": "boldness",
+      "rating_facet": "nonsocial_fear",
+      "sign": 1,
+      "strength": {
+        "r": 0.112,
+        "ci95": [
+          -0.035,
+          0.252
+        ],
+        "dogs": 201
+      },
+      "owner_rating": {
+        "reliability": 0.751,
+        "noise_sd": 0.576
+      },
+      "spread": {
+        "cv": 0.691
+      },
+      "retest": {
+        "factor": "novelty_seeking",
+        "factor_tie": 0.441,
+        "r": 0.3,
+        "ci95": [
+          -0.008,
+          0.559
+        ],
+        "dogs": 37,
+        "enforced": true
+      }
+    },
+    "stranger_approaches": {
+      "vidopet_column": "threatening_approach__latency_to_friendly_reaction",
+      "ace_trait": "boldness",
+      "rating_facet": "fear_of_people",
+      "sign": -1,
+      "strength": {
+        "r": 0.106,
+        "ci95": [
+          -0.03,
+          0.243
+        ],
+        "dogs": 203
+      },
+      "owner_rating": {
+        "reliability": 0.614,
+        "noise_sd": 0.793
+      },
+      "spread": {
+        "cv": 0.506
+      },
+      "retest": {
+        "factor": "sociability_obedience",
+        "factor_tie": 0.2,
+        "r": 0.423,
+        "ci95": [
+          0.106,
+          0.67
+        ],
+        "dogs": 37,
+        "enforced": false
+      }
+    },
+    "owner_returns": {
+      "vidopet_column": "greeting_after_separation__greeting_o_score",
+      "ace_trait": "attachment",
+      "rating_facet": "companionability",
+      "sign": 1,
+      "strength": {
+        "r": -0.11,
+        "ci95": [
+          -0.26,
+          0.04
+        ],
+        "dogs": 193
+      },
+      "owner_rating": {
+        "reliability": 0.495,
+        "noise_sd": 1.011
+      },
+      "spread": {
+        "cv": 0.403
+      },
+      "retest": {
+        "factor": "activity_independence",
+        "factor_tie": 0.255,
+        "r": 0.64,
+        "ci95": [
+          0.413,
+          0.794
+        ],
+        "dogs": 36,
+        "enforced": false
+      }
+    },
+    "ball_thrown": {
+      "vidopet_column": "ball_play__return",
+      "ace_trait": "energy",
+      "rating_facet": "active_engagement",
+      "sign": 1,
+      "strength": {
+        "r": -0.003,
+        "ci95": [
+          -0.133,
+          0.127
+        ],
+        "dogs": 204
+      },
+      "owner_rating": {
+        "reliability": 0.418,
+        "noise_sd": 1.179
+      },
+      "spread": {
+        "cv": 0.437
+      },
+      "retest": {
+        "factor": "sociability_obedience",
+        "factor_tie": 0.444,
+        "r": 0.423,
+        "ci95": [
+          0.106,
+          0.67
+        ],
+        "dogs": 37,
+        "enforced": true
+      }
+    },
+    "new_room": {
+      "vidopet_column": "exploration__explore",
+      "ace_trait": "excitability",
+      "rating_facet": "excitability",
+      "sign": 1,
+      "strength": {
+        "r": 0.142,
+        "ci95": [
+          -0.006,
+          0.281
+        ],
+        "dogs": 194
+      },
+      "owner_rating": {
+        "reliability": 0.636,
+        "noise_sd": 0.756
+      },
+      "spread": {
+        "cv": 0.509
+      },
+      "retest": {
+        "factor": "activity_independence",
+        "factor_tie": 0.49,
+        "r": 0.64,
+        "ci95": [
+          0.413,
+          0.794
+        ],
+        "dogs": 36,
+        "enforced": true
+      }
+    },
+    "sit_command": {
+      "vidopet_column": "obedience__mean_latency_to_obey_commands",
+      "ace_trait": "trainability",
+      "rating_facet": "trainability",
+      "sign": -1,
+      "strength": {
+        "r": 0.076,
+        "ci95": [
+          -0.057,
+          0.21
+        ],
+        "dogs": 194
+      },
+      "owner_rating": {
+        "reliability": 0.541,
+        "noise_sd": 0.922
+      },
+      "spread": {
+        "cv": 1.615
+      },
+      "retest": {
+        "factor": "sociability_obedience",
+        "factor_tie": 0.221,
+        "r": 0.423,
+        "ci95": [
+          0.106,
+          0.67
+        ],
+        "dogs": 37,
+        "enforced": false
+      }
+    }
+  }
+}
