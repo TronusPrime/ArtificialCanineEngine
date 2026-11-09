@@ -7,7 +7,9 @@ Darwin's Ark
   Data: Zenodo 6522639; Dryad doi:10.5061/dryad.g4f4qrfr0
   License: CC0 1.0
   Used in: notebooks/01_personality_from_darwins_ark.ipynb,
-           data/derived/personality_prior.json
+           notebooks/03_emotions_from_real_dogs.ipynb,
+           data/derived/personality_prior.json,
+           data/derived/emotion_prior.json
 
 VIDOPET (Vienna Dog Personality Test) database
   Turcsán B., Wallis L., Virányi Z., Range F., Müller C. A., Huber L.,
@@ -21,3 +23,15 @@ VIDOPET (Vienna Dog Personality Test) database
   computed from the database (rank correlations with bootstrap intervals,
   coefficients of variation, questionnaire reliabilities), not the
   original records.
+
+C-BARQ survey data on dog behavior and temperament
+  Ghirlanda S., Acerbi A., Herzog H., Serpell J. A. (2013). C-BARQ survey
+  on dog behavior and temperament. Questionnaire described in Duffy D. L. &
+  Serpell J. A. (2012), Applied Animal Behaviour Science 138: 99-109.
+  Data: Figshare doi:10.6084/m9.figshare.715896.v1
+  License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+  Used in: notebooks/03_emotions_from_real_dogs.ipynb,
+           data/derived/emotion_prior.json
+  Changes: data/derived/emotion_prior.json uses summary statistics computed
+  from the dataset (golden retriever vs all-dog differences in standard
+  deviation units), not the original records.

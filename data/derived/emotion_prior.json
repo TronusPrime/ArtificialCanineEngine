@@ -1,0 +1,376 @@
+{
+  "sources": [
+    "Darwin's Ark (Morrill et al. 2022, Science), Zenodo 6522639, CC0",
+    "C-BARQ survey data (Duffy & Serpell 2012), Figshare 715896, CC BY 4.0: golden check and fear/panic nudge",
+    "Beerda et al. 1998, Applied Animal Behaviour Science 58:365-381: calm-down speeds"
+  ],
+  "held_out_tests": [
+    "Salonen et al. 2020 (Sci Rep 10:2962)",
+    "Ilska et al. 2017 (Genetics)"
+  ],
+  "breed": "golden retriever",
+  "scale": "percentile among all Darwin's Ark dogs (0..1), same as personality_prior.json",
+  "emotions": [
+    "seeking",
+    "fear",
+    "frustration",
+    "panic",
+    "play",
+    "mood",
+    "calm_down"
+  ],
+  "questions": {
+    "seeking": [
+      106,
+      81,
+      89,
+      52,
+      58
+    ],
+    "fear": [
+      104,
+      86,
+      90,
+      84,
+      88,
+      82,
+      83,
+      77,
+      97
+    ],
+    "frustration": [
+      9,
+      38,
+      20
+    ],
+    "panic": [
+      19,
+      17,
+      40
+    ],
+    "play": [
+      2,
+      4,
+      22,
+      54,
+      5
+    ],
+    "mood": [
+      1,
+      110,
+      103
+    ],
+    "calm_down": [
+      8
+    ]
+  },
+  "decisions": {
+    "dropped_questions": [
+      10
+    ],
+    "reversed_questions": [
+      5,
+      103
+    ],
+    "moved_questions": {},
+    "play_level": "real young goldens (step 4)",
+    "nudged_toward_cbarq": {
+      "fear": true,
+      "panic": false
+    }
+  },
+  "n": {
+    "golden_adults": {
+      "seeking": 136,
+      "fear": 135,
+      "frustration": 143,
+      "panic": 144,
+      "play": 144,
+      "mood": 131,
+      "calm_down": 143
+    },
+    "corr_dogs": 11212
+  },
+  "mean": {
+    "seeking": 0.64,
+    "fear": 0.359,
+    "frustration": 0.353,
+    "panic": 0.474,
+    "play": 0.73,
+    "mood": 0.634,
+    "calm_down": 0.464
+  },
+  "sd": {
+    "seeking": 0.263,
+    "fear": 0.282,
+    "frustration": 0.241,
+    "panic": 0.223,
+    "play": 0.244,
+    "mood": 0.262,
+    "calm_down": 0.272
+  },
+  "corr": {
+    "trainability": {
+      "trainability": 1.0,
+      "attachment": 0.009,
+      "energy": 0.053,
+      "boldness": -0.011,
+      "excitability": -0.138,
+      "impulsivity": -0.381,
+      "seeking": 0.069,
+      "fear": -0.056,
+      "frustration": -0.118,
+      "panic": -0.172,
+      "play": 0.118,
+      "mood": 0.09,
+      "calm_down": 0.143
+    },
+    "attachment": {
+      "trainability": 0.009,
+      "attachment": 1.0,
+      "energy": 0.041,
+      "boldness": 0.055,
+      "excitability": 0.07,
+      "impulsivity": 0.017,
+      "seeking": 0.096,
+      "fear": -0.058,
+      "frustration": -0.075,
+      "panic": 0.003,
+      "play": 0.123,
+      "mood": 0.383,
+      "calm_down": 0.07
+    },
+    "energy": {
+      "trainability": 0.053,
+      "attachment": 0.041,
+      "energy": 1.0,
+      "boldness": -0.01,
+      "excitability": 0.05,
+      "impulsivity": -0.058,
+      "seeking": 0.456,
+      "fear": -0.198,
+      "frustration": -0.062,
+      "panic": -0.128,
+      "play": 0.152,
+      "mood": 0.465,
+      "calm_down": -0.003
+    },
+    "boldness": {
+      "trainability": -0.011,
+      "attachment": 0.055,
+      "energy": -0.01,
+      "boldness": 1.0,
+      "excitability": 0.029,
+      "impulsivity": -0.021,
+      "seeking": 0.23,
+      "fear": -0.407,
+      "frustration": -0.09,
+      "panic": -0.044,
+      "play": 0.107,
+      "mood": 0.132,
+      "calm_down": 0.04
+    },
+    "excitability": {
+      "trainability": -0.138,
+      "attachment": 0.07,
+      "energy": 0.05,
+      "boldness": 0.029,
+      "excitability": 1.0,
+      "impulsivity": 0.609,
+      "seeking": 0.252,
+      "fear": 0.141,
+      "frustration": 0.351,
+      "panic": 0.286,
+      "play": 0.282,
+      "mood": 0.101,
+      "calm_down": -0.508
+    },
+    "impulsivity": {
+      "trainability": -0.381,
+      "attachment": 0.017,
+      "energy": -0.058,
+      "boldness": -0.021,
+      "excitability": 0.609,
+      "impulsivity": 1.0,
+      "seeking": 0.094,
+      "fear": 0.188,
+      "frustration": 0.377,
+      "panic": 0.259,
+      "play": 0.08,
+      "mood": -0.052,
+      "calm_down": -0.473
+    },
+    "seeking": {
+      "trainability": 0.069,
+      "attachment": 0.096,
+      "energy": 0.456,
+      "boldness": 0.23,
+      "excitability": 0.252,
+      "impulsivity": 0.094,
+      "seeking": 1.0,
+      "fear": -0.306,
+      "frustration": 0.066,
+      "panic": 0.073,
+      "play": 0.459,
+      "mood": 0.389,
+      "calm_down": -0.112
+    },
+    "fear": {
+      "trainability": -0.056,
+      "attachment": -0.058,
+      "energy": -0.198,
+      "boldness": -0.407,
+      "excitability": 0.141,
+      "impulsivity": 0.188,
+      "seeking": -0.306,
+      "fear": 1.0,
+      "frustration": 0.272,
+      "panic": 0.166,
+      "play": -0.23,
+      "mood": -0.329,
+      "calm_down": -0.161
+    },
+    "frustration": {
+      "trainability": -0.118,
+      "attachment": -0.075,
+      "energy": -0.062,
+      "boldness": -0.09,
+      "excitability": 0.351,
+      "impulsivity": 0.377,
+      "seeking": 0.066,
+      "fear": 0.272,
+      "frustration": 1.0,
+      "panic": 0.338,
+      "play": -0.011,
+      "mood": -0.139,
+      "calm_down": -0.291
+    },
+    "panic": {
+      "trainability": -0.172,
+      "attachment": 0.003,
+      "energy": -0.128,
+      "boldness": -0.044,
+      "excitability": 0.286,
+      "impulsivity": 0.259,
+      "seeking": 0.073,
+      "fear": 0.166,
+      "frustration": 0.338,
+      "panic": 1.0,
+      "play": 0.048,
+      "mood": -0.069,
+      "calm_down": -0.205
+    },
+    "play": {
+      "trainability": 0.118,
+      "attachment": 0.123,
+      "energy": 0.152,
+      "boldness": 0.107,
+      "excitability": 0.282,
+      "impulsivity": 0.08,
+      "seeking": 0.459,
+      "fear": -0.23,
+      "frustration": -0.011,
+      "panic": 0.048,
+      "play": 1.0,
+      "mood": 0.411,
+      "calm_down": -0.16
+    },
+    "mood": {
+      "trainability": 0.09,
+      "attachment": 0.383,
+      "energy": 0.465,
+      "boldness": 0.132,
+      "excitability": 0.101,
+      "impulsivity": -0.052,
+      "seeking": 0.389,
+      "fear": -0.329,
+      "frustration": -0.139,
+      "panic": -0.069,
+      "play": 0.411,
+      "mood": 1.0,
+      "calm_down": 0.035
+    },
+    "calm_down": {
+      "trainability": 0.143,
+      "attachment": 0.07,
+      "energy": -0.003,
+      "boldness": 0.04,
+      "excitability": -0.508,
+      "impulsivity": -0.473,
+      "seeking": -0.112,
+      "fear": -0.161,
+      "frustration": -0.291,
+      "panic": -0.205,
+      "play": -0.16,
+      "mood": 0.035,
+      "calm_down": 1.0
+    }
+  },
+  "speeds": {
+    "fast_half_life_s": 111.1,
+    "slow_half_life_s": 833.0,
+    "fast": [
+      "seeking",
+      "fear",
+      "frustration",
+      "panic",
+      "play"
+    ],
+    "slow": [
+      "mood"
+    ],
+    "calm_down_bands": [
+      {
+        "answer": 0,
+        "up_to_level": 0.025,
+        "multiplier": 2.828
+      },
+      {
+        "answer": 1,
+        "up_to_level": 0.189,
+        "multiplier": 2.0
+      },
+      {
+        "answer": 2,
+        "up_to_level": 0.355,
+        "multiplier": 1.414
+      },
+      {
+        "answer": 3,
+        "up_to_level": 0.848,
+        "multiplier": 1.0
+      },
+      {
+        "answer": 4,
+        "up_to_level": 1.0,
+        "multiplier": 0.707
+      }
+    ]
+  },
+  "dials": {
+    "happiness": {
+      "seeking": 0.494,
+      "fear": -0.457,
+      "frustration": -0.194,
+      "panic": -0.112,
+      "play": 0.482,
+      "mood": 0.514,
+      "calm_down": 0.035
+    },
+    "agitation": {
+      "seeking": 0.278,
+      "fear": 0.225,
+      "frustration": 0.542,
+      "panic": 0.493,
+      "play": 0.262,
+      "mood": 0.034,
+      "calm_down": -0.515
+    }
+  },
+  "guesses": [
+    "the typical dog (answer 3) gets Beerda's exact speeds",
+    "each calm-down answer step changes the half-life by sqrt(2) (4x range)",
+    "play and seeking use the fear (heart rate) speed; no study measured play",
+    "care has no data and is not included"
+  ]
+}
