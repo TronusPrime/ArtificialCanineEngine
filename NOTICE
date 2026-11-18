@@ -6,9 +6,7 @@ Darwin's Ark
   popular breed stereotypes. Science 376, eabk0639.
   Data: Zenodo 6522639; Dryad doi:10.5061/dryad.g4f4qrfr0
   License: CC0 1.0
-  Used in: notebooks/01_personality_from_darwins_ark.ipynb,
-           notebooks/03_emotions_from_real_dogs.ipynb,
-           data/derived/personality_prior.json,
+  Used in: data/derived/personality_prior.json,
            data/derived/emotion_prior.json
 
 VIDOPET (Vienna Dog Personality Test) database
@@ -17,8 +15,7 @@ VIDOPET (Vienna Dog Personality Test) database
   VIDOPET. PLOS ONE 13(4): e0195448. doi:10.1371/journal.pone.0195448
   Data: Figshare doi:10.6084/m9.figshare.5477932.v2
   License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
-  Used in: notebooks/02_scorer_from_vidopet.ipynb,
-           data/derived/vidopet_targets.json
+  Used in: data/derived/vidopet_targets.json
   Changes: data/derived/vidopet_targets.json holds summary statistics
   computed from the database (rank correlations with bootstrap intervals,
   coefficients of variation, questionnaire reliabilities), not the
@@ -30,8 +27,7 @@ C-BARQ survey data on dog behavior and temperament
   Serpell J. A. (2012), Applied Animal Behaviour Science 138: 99-109.
   Data: Figshare doi:10.6084/m9.figshare.715896.v1
   License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
-  Used in: notebooks/03_emotions_from_real_dogs.ipynb,
-           data/derived/emotion_prior.json
+  Used in: data/derived/emotion_prior.json
   Changes: data/derived/emotion_prior.json uses summary statistics computed
   from the dataset (golden retriever vs all-dog differences in standard
   deviation units), not the original records.
