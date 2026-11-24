@@ -4,8 +4,7 @@ from ace.runtime.needs import NeedsModel, NeedsInputs
 import json
 from pathlib import Path
 
-PRIOR_PATH = Path("data/derived/emotion_prior.json")
-assert PRIOR_PATH.exists()
+PRIOR_PATH = Path(__file__).parent.parent / "data/derived/emotion_prior.json"
 _PRIOR = json.loads(PRIOR_PATH.read_text())
 BANDS = tuple((b["up_to_level"], b["multiplier"]) for b in _PRIOR["speeds"]["calm_down_bands"])
 AVG = EmotionalTendencies(*[0.5] * 7)

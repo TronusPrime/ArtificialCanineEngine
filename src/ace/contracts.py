@@ -31,20 +31,20 @@ class Needs:
 @dataclass(frozen=True, slots=True)
 class Emotions:
     seeking: float
-    play: float
-    panic: float
     fear: float
     frustration: float
+    panic: float
+    play: float
     mood: float
 
 # Emotional Tendencies- how sensitive is a pup to certain emotions
 @dataclass(frozen=True, slots=True)
 class EmotionalTendencies:
     seeking: float
-    play: float
-    panic: float
     fear: float
     frustration: float
+    panic: float
+    play: float
     mood: float
     calm_down: float
 

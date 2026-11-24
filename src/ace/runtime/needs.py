@@ -1,11 +1,6 @@
 from dataclasses import dataclass, replace
 from ace.contracts import Needs
-
-def clip(x, lo, hi):
-    return max(lo, min(hi, x))
-
-def gain(t) -> float:
-    return 0.5 + t
+from ace.core.emotions import clip, gain
 
 @dataclass(frozen = True, slots = True)
 class NeedsInputs:
@@ -46,20 +41,21 @@ class NeedsModel:
         novelty_rate = 0.0
 
         # battery
-        if inp.motion == "rest":
-            if inp.docked:
-                battery_rate += 0.3
-            elif inp.playing:
+        if inp.docked:
+            battery_rate += 0.3
+        else:
+            if inp.motion == "rest":
+                if inp.playing:
+                    battery_rate -= 0.12
+                else:
+                    battery_rate -= 0.02
+            if inp.motion == "walk":
+                if inp.playing:
+                    battery_rate -= 0.12
+                else:
+                    battery_rate -= 0.05
+            if inp.motion == "run":
                 battery_rate -= 0.12
-            else:
-                battery_rate -= 0.02
-        if inp.motion == "walk":
-            if inp.playing:
-                battery_rate -= 0.12
-            else:
-                battery_rate -= 0.05
-        if inp.motion == "run":
-            battery_rate -= 0.12
         
         # play
         if not inp.playing:
@@ -71,9 +67,8 @@ class NeedsModel:
         if inp.owner_absent or inp.owner_dist_m > 2.0:
             social_rate += 0.06 * gain(self.traits.attachment)
         elif not inp.owner_interacting:
-            social_rate += 0.02
-        
-        if inp.owner_dist_m < 1.2:
+            social_rate += 0.02  
+        if not inp.owner_absent and inp.owner_dist_m < 1.2:
             social_rate -= 0.1
         
         # novelty_rate
