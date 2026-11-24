@@ -48,6 +48,8 @@ Each box is a separate module with its own tests. They are built and checked one
 | Behaviour targets | `data/derived/vidopet_targets.json` | How strongly each trait predicts filmed behaviour in a standard dog personality test (VIDOPET), with bootstrap intervals |
 | Personality | `src/ace/core/personality.py` | Draws a puppy's starting traits from the prior |
 | Beliefs | `src/ace/core/beliefs.py` | One belief per thing the dog has met: how likely it is to hurt, and how sure the dog is |
+| Emotions | `src/ace/core/emotions.py` | Five fast emotions and a slow mood that jump at events and fade back to rest at each puppy's own pace |
+| Needs | `src/ace/runtime/needs.py` | Battery, play, social and novelty needs that rise and fall with what the dog does, and pull on its mood |
 | Measuring behaviour | `src/ace/eval/sequences.py` | Turns a run of the dog's choices into phases, timings and intensities, so behaviour can be tested |
 | Shared types | `src/ace/contracts.py` | The small frozen dataclasses passed between modules |
 
@@ -124,7 +126,54 @@ dog.meet("vacuum_2", "vacuum", familiarity=0.4)        # a different vacuum
 
 The second vacuum starts slightly *less* feared than the first did, because overall the dog's time with vacuums was mostly calm. `unsure` feeds the decision to go and check something out: checking is worth most when the dog doesn't yet know.
 
-### 3. Testing behaviour without one right answer
+### 3. Feelings that fade
+
+The dog has five fast emotions (seeking, fear, frustration, panic, play) and a slow mood. Each one drifts back to a resting level with a half-life: about two minutes for the fast emotions, about fourteen for mood. Seven emotional tendencies per puppy, from survey data on real golden retrievers, set where each emotion rests, how hard events push it and how quickly it settles.
+
+A fearful puppy isn't more startled than a bold one. It stays scared for longer. Two puppies hear the vacuum roar:
+
+```python
+import json
+from dataclasses import replace
+from pathlib import Path
+from ace.contracts import EmotionalTendencies, Needs
+from ace.core.emotions import EmotionCore
+
+prior = json.loads(Path("data/derived/emotion_prior.json").read_text())
+bands = tuple((b["up_to_level"], b["multiplier"]) for b in prior["speeds"]["calm_down_bands"])
+calm = Needs(battery=1.0, play=0.0, social=0.0, novelty=0.0)    # nothing it needs
+
+avg = EmotionalTendencies(*[0.5] * 7)                            # every tendency average
+timid = EmotionCore(replace(avg, fear=0.9), bands)
+bold = EmotionCore(replace(avg, fear=0.1), bands)
+for pup in (timid, bold):
+    pup.on_innate(-0.8)                                          # it roars
+for minute in range(60):
+    for pup in (timid, bold):
+        pup.step(60.0, calm)                                     # a quiet minute
+```
+
+| Minutes after the roar | fear, timid | fear, bold | mood, timid | mood, bold |
+|---|---|---|---|---|
+| 0 | 0.82 | 0.66 | −0.16 | −0.16 |
+| 1 | 0.67 | 0.37 | −0.17 | −0.16 |
+| 5 | 0.36 | 0.06 | −0.18 | −0.14 |
+| 10 | 0.24 | 0.03 | −0.17 | −0.12 |
+| 60 | 0.19 | 0.02 | −0.08 | −0.03 |
+
+Both jump by the same 0.64 above where they rest. The timid puppy's fear takes over twice as long to fade, and its mood stays low longer because the lingering fear keeps pulling it down. Fear is back near rest within ten minutes; mood takes about an hour.
+
+Needs work differently. They rise and fall in straight lines, and unmet ones pull mood down. With the owner out of the house, an average puppy's social need fills up in about twelve minutes, and panic follows it:
+
+| Minutes alone | social need | panic | mood |
+|---|---|---|---|
+| 5 | 0.60 | 0.28 | −0.06 |
+| 15 | 1.00 | 0.51 | −0.28 |
+| 60 | 1.00 | 0.56 | −0.65 |
+
+Emotions feed each other (fear lowers mood, low mood raises fear), but the links are kept weak on purpose. Once around the fear–mood loop, a nudge comes back 6% as big, so one bad scare fades instead of spiralling into a permanently miserable puppy.
+
+### 4. Testing behaviour without one right answer
 
 There is no single correct way for a dog to react to a scare, but there are generally right and generally wrong ones. So behaviour is tested as **sequences**: a scared dog backs away (A), may check the thing out (C), returns to its toy (R), and eventually plays (P). `measure_run` labels each moment of a run with its phase and measures it, and the tests judge those measurements.
 
